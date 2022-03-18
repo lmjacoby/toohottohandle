@@ -1,0 +1,298 @@
+<!DOCTYPE HTML>
+<html xml:lang="en" lang="en">
+<head>
+<title>CSE442 | Final Project</title>
+<link rel="shortcut icon" type="image/jpg" href="data\fire_logo.jpg"/>
+    <!-- For using d3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<style media="all">
+* { padding: 0; margin: 0; }
+body {
+margin: 0 auto 0 auto;
+padding: 0;
+width: 100%;
+min-width: 1000px;
+font-family: "Avenir", "Avenir Next", "Helvetica Neue", "Arial";
+font-size: 0.95em;
+}
+a, a:visited { text-decoration: none; color: #7533f4; }
+a:hover { text-decoration: underline; color: #f4b014; }
+h1, h2, h3, h4, h5 {
+color: black;
+background-color: inherit;
+font-weight: normal;
+padding: 0 0 5px 0;
+margin: 15px 0 0 0;
+border: none;
+clear: right;
+}
+h1 { font-size: 24pt; margin:  5px 0 10px 0; line-height: 28px; }
+h2 { font-family: "Helvetic Neue"; font-size: 14pt; margin: 30px 0 15px 0; letter-spacing: 0.01em; border-bottom: 1px solid #ccc;  line-height: 20px;}
+h3 { font-size: 13pt; }
+h4 { font-size: 12pt; }
+h5 { font-size: 11pt; }
+p { margin: 0 0 10px 0; font-family: "Helvetic Neue"; font-size: 18px}
+.content {
+margin: 0;
+padding: 15px 20px;
+background-color: #ffffff;
+}
+.footer {
+border-top: 1px solid #ccc;
+margin-top: 30px;
+padding-top: 4px;
+text-align: right;
+font-size: 12px;
+}
+.footer a {
+color: #21346B;
+}
+.footer a:hover {
+color: #ce3333;
+}
+.float-container {
+        display: flex;
+        }
+.float-child {
+        width: 50%;
+        float: left;
+        padding: 20px;
+                }
+.float-child1 {
+        width: 85%;
+        margin: auto;
+        padding: 20px;
+
+      }
+.float-child2 {
+        width: 55%;
+        align-items: right;
+        padding: 10px;
+      }
+.float-child3 {
+        width: 45%;
+        margin-right: 15%
+        padding: 20px;
+}
+</style>
+</head>
+<body>
+  <!-- This part is the header of the site -->
+  <div style="background-image: url('https://ca-times.brightspotcdn.com/dims4/default/235d562/2147483647/strip/true/crop/5357x3445+0+0/resize/1486x956!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F3e%2F36%2Fb5113d044656b970de5a5afeaba4%2Fcalifornia-western-wildfires-58144.jpg');
+ background-size: cover; min-height:480px; padding-top:300px;
+padding-right: 25px; text-align: right; font-family: Georgia;">
+ <h1 style="font-size:100px; color:white; margin-bottom:40px;">Too Hot To Handle</h1>
+ <p style="font-size:40px; color: white;"><em>Visualizing the Impact of Wildfires in the United States</em></p>
+ <p style="font-size:20px; color: white; margin-top: 320px; padding-bottom: 5px;"><em>Team Members: Margherita Taddei, Laura Jacoby, Yangwei Shi</em></p>
+ </div>
+ </div>
+<div class="content" style = "background-color: #c1c4bb">
+
+<section style = "width: 95%; margin: auto;">
+    <p style="font-family: Georgia; font-size:35px;text-align: center; margin: 0 0 20px 0"> <strong>A Particularly Devastating Year for Wildfires</strong> </p>
+    <p style="font-size:23px;margin: 5px 0 0 0"> <strong>Spacially and Temporally Understanding Wildfires </strong></p>
+    <p id="intro" style="margin: 0 0 10px 0">
+    Every year in the US, millions of wildfire emerge and cause unimaginable damage to people and places. In this first narrative we are going to
+    explore the size and location of wildfires during 2018, which was a particularly devastating year for wildfires. In the map below, you are able to
+    visualize the fires of 2018 through data taken by a NASA satellite. You can scroll on your own to focus on a particular time of the year, or just watch
+    the animation on autoplay. The points that appear on the map are the force radiative power measure in mW per unit area. The larger and more red spots indicate
+    more powerful wildfires detected at that location.
+    </p>
+    <section class="float-child1">
+        <!-- This part is for us map fire -->
+        <div id="observablehq-chart-5d5c1f50" style = "border: 0.5px solid black"></div>
+        <div id="observablehq-viewof-day-5d5c1f50"></div>
+
+        <script type="module" >
+        import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+        import define from "https://api.observablehq.com/d/ed03faa721e508e1.js?v=3";
+        new Runtime().module(define, name => {
+        if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-5d5c1f50"));
+        if (name === "viewof day") return new Inspector(document.querySelector("#observablehq-viewof-day-5d5c1f50"));
+        return ["date"].includes(name);
+        });
+        </script>
+        </section>
+
+  <section class = "float-container" style="width: 85%; margin: auto" >
+    <section class = "float-child3">
+        <p style="font-size:23px; margin: 85px 0 0 0"> <strong>The Summer of Fire</strong></p>
+        <p id="intro" style="margin: 10px 80px 0 0">
+          The months in the summer are typically the most catastrophic for wildfires and 2018 was no different. Ordered by "Month", the distribution is Gaussian-like, with lowest
+          acres burned occuring at the beginning and end of the year (the winter months). Into Spring, the total acres burned starts to pick up and then explodes in summer.
+          July and August alone account for ~50% of the acres burned that year. Then as the fall comes, the burned acres drop back down heading toward another winter. Change the
+          drop down menu to "Order" and see the absolute order of highest and lowest burn months.
+        </p>
+        </section>
+    <section class="float-child2">
+            <!-- This part is for bar chart -->
+            <div id="observablehq-chart-202f2cd3"></div>
+            <div id="observablehq-viewof-month-202f2cd3"></div>
+
+            <script type="module">
+            import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+            import define from "https://api.observablehq.com/d/fabf798a30d83a07.js?v=3";
+            new Runtime().module(define, name => {
+            if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-202f2cd3"));
+            if (name === "viewof month") return new Inspector(document.querySelector("#observablehq-viewof-month-202f2cd3"));
+                  return ["update"].includes(name);
+            });
+            </script>
+    </section>
+</section>
+
+<section class = "float-container" style= "border-top: 1px solid #ccc;">
+    <section class="float-child1">
+        <!-- this is the second part chart: map chart -->
+        <p style="font-size:23px"> <strong>The Biggest Fires are in the West</strong></p>
+        <p id="intro" style="margin: 10px 20px 0 0">
+          This map of the US shows total burned acres by state in 2018, with darker reds indicating higher values. Hover over a state to learn how many
+          total acres were burned that year. It is clear states in the Western part of the US experienced the most fire damage. Overlayed on the US map is
+          a bubble map which indicates the location of the 50 largest fires (total acres burned) in 2018, with radius of the bubble representing total size
+          of the fire. Not only did the west have the most fire, but it also had the worst fires. To learn the name, size, and dates of the fifty largets fires,
+          hover on the black bubbles.
+        </p>
+        <div id="observablehq-chartBubble-de90f56b"></div>
+
+<script type="module">
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+import define from "https://api.observablehq.com/d/b3d9ab7d00b4f196.js?v=3";
+new Runtime().module(define, name => {
+  if (name === "chartBubble") return new Inspector(document.querySelector("#observablehq-chartBubble-de90f56b"));
+});
+</script>
+    </section>
+
+    <section class="float-child">
+           <!-- this is the second part chart: radial chart -->
+           <p style="font-size:23px"> <strong>Most Wildfires are Cause by Humans</strong></p>
+           <p id="intro" style="margin: 10px 0 10px 0">
+             Wildfires are overwhelming caused by humans. This radial stacked bar chart explores the causes of wildfires in 2018 broken down by state.
+             The US Forest Service classifies fires into three main categories: human, natural, or undetermined. Some of the causes of human fires are:
+             arson, fireworks and explosives and smoking.
+           </p>
+           <div id="observablehq-chart-5ec9734d"></div>
+
+           <script type="module">
+           import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+           import define from "https://api.observablehq.com/d/6c36898029b49e0b.js?v=3";
+           new Runtime().module(define, name => {
+             if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-5ec9734d"));
+           });
+           </script>
+    </section>
+</section>
+<!-- over time section -->
+<section style= "border-top: 1px solid black;">
+<p style="font-family: Georgia; font-size:35px;text-align: center; margin: 20px 0 20px 0"> <strong>How are US Wildfires Changing Over Time?</strong> </p>
+<p style="margin: 0 0 10px 0">
+Looking at yearly wildfire data from the past three decades, 1992-2018, can help us understand if and how wildfires have changed with time, and what
+that means for the future.
+</p>
+
+<!-- This part is for line chart section -->
+<section class = "float-container" style="width: 95%; margin: auto" >
+  <section class="float-child2" style="width: 65%;">
+         <div id="observablehq-chart-b4ae677f" style="margin: 15px 0 0 0"></div>
+         <div id="observablehq-viewof-replay-b4ae677f"></div>
+
+         <script type="module">
+         import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+         import define from "https://api.observablehq.com/d/fc63a05bef1dfc74.js?v=3";
+         new Runtime().module(define, name => {
+           if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-b4ae677f"));
+           if (name === "viewof replay") return new Inspector(document.querySelector("#observablehq-viewof-replay-b4ae677f"));
+         });
+         </script>
+  </section>
+  <section class = "float-child3" style="width: 35%;">
+      <p style="font-size:23px; margin: 45px 0 0 0"> <strong>Wildfires are Getting Worse</strong></p>
+      <p id="intro" style="margin: 10px 0 0 0">
+        Over the past three decades, the number of acres burned every year has statistically been increasing. Between 1992-1996, an average of
+        3.3 million acres burned per year due to wild fires. Two decades later, between 2014-2018 that average doubles to 7.5 million acres per
+        year. The cause could be related to climate change, which has created a warmer world with drier summers which lead to more fires.
+      </p>
+      </section>
+</section>
+
+<!-- This part is for moving bar chart section -->
+<section class = "float-container" style="width: 95%; margin: auto; margin-top: 20px" >
+  <section class = "float-child3" style="width: 35%">
+      <p style="font-size:23px; margin: 0 0 0 0"> <strong>Larger Fires Are Increasing in Time</strong></p>
+      <p id="intro" style="margin: 0 0 0 0">
+        Not only are more acres burning per year, but larger fires are the culprit. The US Forest Service classifies fires into seven categories. Move
+        the scrubber on the bar chart to see how the relative amount of larger fires (class G) have changed over three decases. Fire classes are:
+        <ul style="margin-left: 0; padding-left: 35px; font-family: 'Helvetic Neue'; font-size: 18px">
+            <li>Class A: 0.25 acres or less</li>
+            <li>Class B: > 0.25 acres, < 10 acres</li>
+            <li>Class C: >= 10 acres, < 100 acres</li>
+            <li>Class D: >= 100 acres, < 300 acres</li>
+            <li>Class E: >= 300 acres, < 1,000 acres</li>
+            <li>Class F: >= 1,000 acres, < 5,000 acres</li>
+            <li>Class G: >= 5,000 acres</li>
+        </ul>
+      </p>
+      </section>
+  <section class="float-child2" style="width: 65%; margin-top: 0">
+    <div id="observablehq-chart-0726b255"></div>
+    <div id="observablehq-viewof-keyframe-0726b255"></div>
+
+    <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
+    import define from "https://api.observablehq.com/d/1fc4da65843c03e2.js?v=3";
+    new Runtime().module(define, name => {
+    if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-0726b255"));
+    if (name === "viewof keyframe") return new Inspector(document.querySelector("#observablehq-viewof-keyframe-0726b255"));
+    return ["update"].includes(name);
+    });
+    </script>
+  </section>
+</section>
+</section>
+
+<section style= "border-top: 2px solid black;">
+<h2>Design Decisions</h2>
+<p style="font-size: 16px">We decide to continue to work on the the wild fire dataset. This time, we would like to add more interactive features into the
+    visualization such as zoom in et al. The balck background was used to get a clear contrast with the fire that is encoded with a red color.
+    The size and color of the data points are related to the fire strength, which provide direct comparison among the fires. The scrubber was kept in order to see the change in the development of wild fire all over US.
+    The zoom in feature allows people to select the region they are interested in to get more information. For example, you can choose California and see clearly which place had that fire.
+    In addition, we choose to add another map which displays the corresponding total burned areas in each state. This feature will provide information on which states have the most severe wide fire though we might have know it would be California. </p>
+</section>
+
+<section>
+<h2>Development Process</h2>
+    <p style="font-size: 16px">
+    The final project was baesd on the previous A3 assignment. The visualization uses the wildfire dataset with additioanl data such as the total burned acres and the causes for the corresponding wildfires.
+    We kept the map and scurbber feature in this final project. Additionally, we decided to add more interactive features into this map such as zoom et al. When a  State is clicked in the map, it will be enlarged and shows up in the center,
+    which is convenient for detailed analysis. Besides, the aupacity of the data points were changed so that data points can be differentiated from each other
+    when zoomed in. You can also drag the map to the region you are interested.
+    As mentioned, the total burned acres are included in the final project. We decided to visualize this data suing a barchart for clarity. You can also interact with this bar chart by sorting the data.
+    For example, you can choose Month or sort the burned acres in a descending order. It is easier to draw the conclusion that summuer season has the most sever wild fires.
+    How would the wild fire distributed spatially? In order to understand this, we again chosed the map to plot out the total burned acres in the map. It is claer that
+    West coast has the most wilkd fires. Besides, we added the Top 50 most severe wild fire in the United States in 2018.
+    Lastly, we are curious what the causes for those fires. So we chosed to use the radial chart to visualize. It is surprising to know that most fires are actually caused by human.
+  </p>
+</section>
+
+<section>
+    <h2>References</h2>
+<!-- Add references here  -->
+<p>
+    1. Data source:
+<a target="_blank" href="https://firms.modaps.eosdis.nasa.gov/country/">Fire Information for Resource Management System, NASA</a>
+</p>
+<p>
+    2. Data source:
+    <a target="_blank" href="https://www.statista.com/statistics/217072/number-of-fires-and-acres-burned-due-to-us-wildfires/">National Fire Protection Association (National Interagency Coordination Center)</a>
+</p>
+</section>
+
+<div class="footer">
+<a href="https://courses.cs.washington.edu/courses/cse442/22wi/">CSE 442 Data Visualization</a>
+<a href="http://www.washington.edu">University of Washington</a>
+</div>
+</div>
+</body>
+</html>
