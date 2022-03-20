@@ -1,8 +1,9 @@
-# toohottohandle
-A project for visualizing the impact of wildfires in the United States
+# Too Hot To Handle
+### A project for visualizing the impact of wildfires in the United States
 
-Project page:  https://cse442-22w.github.io/FP-3chemistsonfire/
+Project page: https://lmjacoby.github.io/toohottohandle/
 
-Other project page: https://lmjacoby.github.io/toohottohandle/
-
-Modify or replace `index.html` in the `docs` folder to update your project page.
+Authors:
+- Laura Jacoby
+- Margherita Taddei
+- Yangwei Shi
