@@ -128,15 +128,15 @@ padding-right: 25px; text-align: right; font-family: Georgia;">
         </section>
     <section class="float-child2">
             <!-- This part is for bar chart -->
-            <div id="observablehq-chart-fbf4e0dc"></div>
-            <div id="observablehq-viewof-month-fbf4e0dc"></div>
+            <div id="observablehq-chart-aec09cae"></div>
+            <div id="observablehq-viewof-month-aec09cae"></div>
 
             <script type="module">
             import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
             import define from "https://api.observablehq.com/d/4ae75923947e5ef4.js?v=3";
             new Runtime().module(define, name => {
-              if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-fbf4e0dc"));
-              if (name === "viewof month") return new Inspector(document.querySelector("#observablehq-viewof-month-fbf4e0dc"));
+              if (name === "chart") return new Inspector(document.querySelector("#observablehq-chart-aec09cae"));
+              if (name === "viewof month") return new Inspector(document.querySelector("#observablehq-viewof-month-aec09cae"));
               return ["update"].includes(name);
             });
             </script>
