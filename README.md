@@ -1,4 +1,4 @@
-![logo](https://github.com/lmjacoby/toohottohandle/blob/main/static/2h2h_logo.PNG)
+![logo](https://github.com/lmjacoby/toohottohandle/blob/main/static/2h2h_logo.PNG =250x)
 
 ## The US Wildfire Problem is Too Hot To Handle
 
