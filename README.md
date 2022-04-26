@@ -6,6 +6,8 @@ Every year in the US, millions of wildfire emerge and cause unimaginable damage 
 
 So, jump right in and [follow this link](https://lmjacoby.github.io/toohottohandle/) to see that the wildfire problem in the US is really Too Hot To Handle.
 
+![bubble chart](https://github.com/lmjacoby/toohottohandle/blob/main/static/chartBubble.png)
+
 #### Data Sources
 1. NASA VIIRS Data: https://firms.modaps.eosdis.nasa.gov/download/
 2. USDA Wildfire Occurrence: https://www.fs.usda.gov/rds/archive/catalog/RDS-2013-0009.5
