@@ -4,7 +4,7 @@
 
 Every year in the US, millions of wildfire emerge and cause unimaginable damage to people and places. Through this visualization you can gain a better understanding of where wildfires occur in the US, how they change seasonally, the root cause and how wildfires are changing over the past two decades.
 
-So, jump right in and [follow this link](https://lmjacoby.github.io/toohottohandle/) to see that the wildfire problem in the US is really Too Hot To Handle.
+**So, jump right in and [follow this link](https://lmjacoby.github.io/toohottohandle/) to see that the wildfire problem in the US is really Too Hot To Handle.**
 
 ![bubble chart](https://github.com/lmjacoby/toohottohandle/blob/main/static/chartBubble.png)
 
